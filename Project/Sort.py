@@ -2,9 +2,9 @@ def quick_sort(arr):
     if len(arr) <= 1:
         return arr
     
-    pivot = arr[0]              
-    left = []                   
-    right = []                  
+    pivot = arr[0]
+    left = []
+    right = []
 
     for x in arr[1:]:
         if x < pivot:
@@ -16,7 +16,12 @@ def quick_sort(arr):
 
 
 def bubble_sort(arr):
-    pass #เพิ่ม function [เอมมิกา]
+    n = len(arr)
+    for i in range(n):
+        for j in range(0, n - i - 1):
+            if arr[j] > arr[j + 1]:
+                arr[j], arr[j + 1] = arr[j + 1], arr[j]
+    return arr
 
 
 def main():
@@ -30,9 +35,8 @@ def main():
         print("ผลลัพธ์ (quick sort):", result)
 
     elif algo == "bubble":
-        print("ยังไม่ได้ทำ bubble sort (รอเพื่อนคุณทำต่อ)")
-        result = numbers
-        print("ผลลัพธ์:", result)
+        result = bubble_sort(numbers)
+        print("ผลลัพธ์ (bubble sort):", result)
 
     else:
         print("ไม่รู้จัก algorithm ที่เลือก")
@@ -40,3 +44,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+
